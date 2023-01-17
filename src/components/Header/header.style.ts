@@ -12,20 +12,32 @@ export const Right = styled.div`
   align-items: center;
 `;
 export const LogoText = styled.p`
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-left: 20px;
 `;
 
 export const Img = styled.img`
-  width: 4vw;
+  width: 3vw;
   height: auto;
 `;
 
 export const Sign = styled.div`
-  background-color: red;
   display: flex;
 `;
 
 export const Login = styled.div``;
 
-export const Join = styled.div``;
+export const Join = styled.div`
+  margin-left: 20px;
+`;
+export const Modal = styled.div`
+  width: 40vw;
+  border-radius: 30px;
+  height: 80vh;
+  border: 1px solid black;
+`;
+
+export const LoginModal = styled.div`
+  display: flex;
+  justify-content: center;
+`;
