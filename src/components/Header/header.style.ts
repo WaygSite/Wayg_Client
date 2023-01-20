@@ -31,7 +31,7 @@ export const Join = styled.div`
   margin-left: 20px;
 `;
 export const Modal = styled.div`
-  width: 40vw;
+  width: 30vw;
   border-radius: 30px;
   height: 80vh;
   border: 1px solid black;

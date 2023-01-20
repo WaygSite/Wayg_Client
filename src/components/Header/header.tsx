@@ -8,7 +8,7 @@ const Header: React.FC<Props> = () => {
   const [state, setState] = useState(true);
 
   const Login = () => {
-    setState(!state);
+    setState(false);
   };
 
   return (
@@ -20,7 +20,7 @@ const Header: React.FC<Props> = () => {
         </S.Right>
         <S.Sign>
           <S.Login onClick={Login}>로그인</S.Login>
-          Copy code
+
           <S.Join>회원가입</S.Join>
         </S.Sign>
       </S.Header>
