@@ -1,11 +1,14 @@
+import React from "react";
 import Main from "./pages/Main";
-
 import { Reset } from "styled-reset";
-export default function App() {
+
+const App: React.FC = () => {
   return (
     <>
       <Reset />
       <Main />
     </>
   );
-}
+};
+
+export default App;
