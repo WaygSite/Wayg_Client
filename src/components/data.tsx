@@ -16,7 +16,6 @@ const Api: React.FC<Props> = () => {
     };
     fetch();
   }, []);
-  console.log(state);
 
   const GRID = styled.div`
     display: grid;
