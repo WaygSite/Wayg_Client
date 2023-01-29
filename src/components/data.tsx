@@ -21,13 +21,13 @@ const Api: React.FC<Props> = () => {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, 500px);
-    grid-template-rows: repeat(${state.length}, 600px);
+    grid-template-rows: repeat(${state.length - 71}, 600px);
     column-gap: 30px;
     row-gap: 30px;
     justify-content: center;
   `;
   const GRID_ITEM = styled.div`
-    background-color: #ddd;
+    border: 2px solid black;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
