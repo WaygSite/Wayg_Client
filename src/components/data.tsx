@@ -32,6 +32,17 @@ const Api: React.FC<Props> = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    &:hover {
+      transform: translateY(-15px);
+      z-index: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 5px 5px 5px 5px gray;
+    }
+    &:not(:hover) {
+      transition: all 0.3s ease;
+      transform: translateY(15px);
+    }
   `;
   const Loading = styled.div`
     display: flex;
@@ -41,6 +52,24 @@ const Api: React.FC<Props> = () => {
     font-weight: bold;
     height: 80vh;
   `;
+  const SchoolImg = styled.div`
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    height: 30vh;
+    width: 500px;
+    border-radius: 50px;
+    justify-content: center;
+  `;
+  const Title = styled.div`
+    font-size: 20px;
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+  `;
+  const LinkTag = styled(Link)`
+    text-decoration: none;
+  `;
   return (
     <div>
       {loading ? (
@@ -49,7 +78,10 @@ const Api: React.FC<Props> = () => {
         <GRID>
           {state.map((e, index) => (
             <GRID_ITEM key={index}>
-              <Link to="/Detail">학교이름 : {e.학교}</Link>
+              <SchoolImg>학교 사진</SchoolImg>
+              <LinkTag to="/Detail">
+                <Title>{e.학교}</Title>
+              </LinkTag>
               <div>설립구분 : {e.설립구분}</div>
               <div>고교유형 : {e.고교유형}</div>
               <div>남녀공학 : {e.남녀공학구분}</div>

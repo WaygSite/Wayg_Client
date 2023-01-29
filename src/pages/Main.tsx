@@ -2,13 +2,14 @@ import React from "react";
 import Data from "../components/data";
 
 import Header from "../components/Header";
-
+import styled from "styled-components";
+const Bg = styled.body``;
 const Main: React.FC = () => {
   return (
-    <div>
+    <Bg>
       <Header />
       <Data />
-    </div>
+    </Bg>
   );
 };
 
