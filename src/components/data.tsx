@@ -8,6 +8,7 @@ interface Props {}
 const Api: React.FC<Props> = () => {
   const [state, setState] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
+  const [value, setValue] = useState({});
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchData();
@@ -65,9 +66,9 @@ const Api: React.FC<Props> = () => {
     display: flex;
     justify-content: center;
   `;
-  const LinkTag = styled(Link)`
-    text-decoration: none;
-  `;
+  // const LinkTag = styled(Link)`
+  //   text-decoration: none;
+  // `;
   const Text = styled.div`
     color: black;
     display: flex;
@@ -80,9 +81,9 @@ const Api: React.FC<Props> = () => {
         <Loading>Loading...</Loading>
       ) : (
         <GRID>
-          {state.map((e, index) => (
-            <GRID_ITEM key={index}>
-              <LinkTag to="/Detail">
+          {state.map((e: any, index) => (
+            <GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
+              <Link to={{ pathname: "/Detail", state: { value: e } }}>
                 <SchoolImg>학교 사진</SchoolImg>
                 <Title>{e.학교}</Title>
                 <Text>설립구분 : {e.설립구분}</Text>
@@ -91,7 +92,8 @@ const Api: React.FC<Props> = () => {
                 <Text>학교주소 : {e.학교도로명주소}</Text>
                 <Text>학교번호 : {e.학교전화번호}</Text>
                 <Text>설립일자 : {e.설립일자}</Text>
-              </LinkTag>
+                <Text>우편번호 : {e.우편번호}</Text>
+              </Link>
             </GRID_ITEM>
           ))}
         </GRID>

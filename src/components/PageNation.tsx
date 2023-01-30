@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import Pagination from "react-js-pagination";
+import { useState } from "react";
 
 const PaginationBox = styled.div`
   margin-top: 20px;
   position: relative;
   bottom: 0;
   display: flex;
+  width: 100%;
   justify-content: center;
-  width: 100vw;
   background-color: white;
-  border: 1px solid gray;
+
   height: 10vh;
   align-items: center;
   .pagination {
@@ -56,19 +57,22 @@ const PaginationBox = styled.div`
 `;
 
 const PageNation: React.FC = () => {
-  const handlePageChange = (pageNumber: number) => {};
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+  console.log(currentPage);
   return (
-    <div>
-      <PaginationBox>
-        <Pagination
-          activePage={1}
-          itemsCountPerPage={5}
-          totalItemsCount={300}
-          pageRangeDisplayed={5}
-          onChange={handlePageChange}
-        ></Pagination>
-      </PaginationBox>
-    </div>
+    <PaginationBox>
+      <Pagination
+        activePage={currentPage}
+        itemsCountPerPage={5}
+        totalItemsCount={50}
+        pageRangeDisplayed={5}
+        onChange={handlePageChange}
+      ></Pagination>
+    </PaginationBox>
   );
 };
 

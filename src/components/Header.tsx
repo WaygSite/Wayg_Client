@@ -5,10 +5,11 @@ import styled, { css } from "styled-components";
 //styled
 const Container = styled.div<{ trueOrFalse: boolean }>`
   display: flex;
+
   overflow-x: hidden;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   margin-bottom: 20px;
   justify-content: space-around;

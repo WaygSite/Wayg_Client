@@ -3,6 +3,7 @@ import Main from "./pages/Main";
 import { Reset } from "styled-reset";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Detail from "./pages/Detail";
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
