@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 //styled
-const Container = styled.div<{ trueOrFalse: boolean }>`
+const Container = styled.header<{ trueOrFalse: boolean }>`
   display: flex;
-
   overflow-x: hidden;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 10vh;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   justify-content: space-around;
   background-color: #03c988;
   ${({ trueOrFalse }) =>
@@ -88,16 +87,23 @@ const Header: React.FC = () => {
   const [scroll, setScroll] = useState(0);
   const [trueOrFalse, setTrueOrFalse] = useState(true);
   //trueOrFalse가 거짓이면 position이 fixed로 설정
+  //먼저 헤더부분의 높이를 가져온 후 그 높이랑 스크롤 위치가 같을 때 trueOrFalse에 false값을 넣어주고 css에서 애니메이션을 적용해주면 됨
+  //이제 실천으로 옮기면 되는데 헤더높이를 js에서 어떻게 가져오노;;
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY);
-      if (scroll >= 147) {
+      const header = document.querySelector("header");
+      const headerHeight = header?.offsetHeight;
+      const currentScrollPosition = window.pageYOffset;
+      console.log(
+        "헤더 : " + headerHeight + "스크롤 : " + currentScrollPosition
+      );
+      if (Number(headerHeight) <= Number(currentScrollPosition)) {
         setTrueOrFalse(false);
       } else {
         setTrueOrFalse(true);
       }
     });
-  }, [scroll]);
+  }, []);
   console.log(trueOrFalse);
   const SearchSchool = (e: any) => {
     setSearch(e.target.value);

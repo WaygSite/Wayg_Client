@@ -66,9 +66,9 @@ const Api: React.FC<Props> = () => {
     display: flex;
     justify-content: center;
   `;
-  // const LinkTag = styled(Link)`
-  //   text-decoration: none;
-  // `;
+  const LinkTag = styled(Link)`
+    text-decoration: none;
+  `;
   const Text = styled.div`
     color: black;
     display: flex;
@@ -83,7 +83,7 @@ const Api: React.FC<Props> = () => {
         <GRID>
           {state.map((e: any, index) => (
             <GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
-              <Link to={"/Detail"} state={{ value: e.학교 }}>
+              <LinkTag to={"/Detail"} state={{ value: e.학교 }}>
                 <SchoolImg>학교 사진</SchoolImg>
 
                 <Title>{e.학교}</Title>
@@ -94,7 +94,7 @@ const Api: React.FC<Props> = () => {
                 <Text>학교번호 : {e.학교전화번호}</Text>
                 <Text>설립일자 : {e.설립일자}</Text>
                 <Text>우편번호 : {e.우편번호}</Text>
-              </Link>
+              </LinkTag>
             </GRID_ITEM>
           ))}
         </GRID>
