@@ -83,8 +83,9 @@ const Api: React.FC<Props> = () => {
         <GRID>
           {state.map((e: any, index) => (
             <GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
-              <Link to={{ pathname: "/Detail", state: { value: e } }}>
+              <Link to={"./Detail"} state={{ value: e.학교 }}>
                 <SchoolImg>학교 사진</SchoolImg>
+
                 <Title>{e.학교}</Title>
                 <Text>설립구분 : {e.설립구분}</Text>
                 <Text>고교유형 : {e.고교유형}</Text>
