@@ -29,11 +29,8 @@ const Api: React.FC<Props> = () => {
   const GRID_ITEM = styled.div`
     border: 2px solid black;
     border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     &:hover {
-      transform: translateY(-15px);
+      transform: translateY(-5px);
       z-index: 0;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -41,7 +38,7 @@ const Api: React.FC<Props> = () => {
     }
     &:not(:hover) {
       transition: all 0.3s ease;
-      transform: translateY(15px);
+      transform: translateY(5px);
     }
   `;
   const Loading = styled.div`
@@ -53,11 +50,10 @@ const Api: React.FC<Props> = () => {
     height: 80vh;
   `;
   const SchoolImg = styled.div`
-    border: 2px solid red;
     display: flex;
     align-items: center;
     height: 30vh;
-    width: 500px;
+    width: 495px;
     border-radius: 50px;
     justify-content: center;
   `;
@@ -66,10 +62,18 @@ const Api: React.FC<Props> = () => {
     margin-top: 10px;
     color: black;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
   `;
   const LinkTag = styled(Link)`
     text-decoration: none;
   `;
+  const Text = styled.div`
+    color: black;
+    display: flex;
+    justify-content: center;
+  `;
+
   return (
     <div>
       {loading ? (
@@ -78,16 +82,16 @@ const Api: React.FC<Props> = () => {
         <GRID>
           {state.map((e, index) => (
             <GRID_ITEM key={index}>
-              <SchoolImg>학교 사진</SchoolImg>
               <LinkTag to="/Detail">
+                <SchoolImg>학교 사진</SchoolImg>
                 <Title>{e.학교}</Title>
+                <Text>설립구분 : {e.설립구분}</Text>
+                <Text>고교유형 : {e.고교유형}</Text>
+                <Text>남녀공학 : {e.남녀공학구분}</Text>
+                <Text>학교주소 : {e.학교도로명주소}</Text>
+                <Text>학교번호 : {e.학교전화번호}</Text>
+                <Text>설립일자 : {e.설립일자}</Text>
               </LinkTag>
-              <div>설립구분 : {e.설립구분}</div>
-              <div>고교유형 : {e.고교유형}</div>
-              <div>남녀공학 : {e.남녀공학구분}</div>
-              <div>학교주소 : {e.학교도로명주소}</div>
-              <div>학교번호 : {e.학교전화번호}</div>
-              <div>설립일자 : {e.설립일자}</div>
             </GRID_ITEM>
           ))}
         </GRID>
