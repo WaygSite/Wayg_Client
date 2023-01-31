@@ -10,7 +10,7 @@ const Container = styled.header<{ trueOrFalse: boolean }>`
   align-items: center;
   width: 100%;
   height: 10vh;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   justify-content: space-around;
   background-color: #03c988;
   ${({ trueOrFalse }) =>

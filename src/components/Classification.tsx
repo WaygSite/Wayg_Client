@@ -1,5 +1,33 @@
+import styled from "styled-components";
+
+const Select = styled.select`
+  width: 200px;
+  padding: 0.8em 0.5em;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  font-family: inherit;
+  background: url("./img/arrow.jpg") no-repeat 100% 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+`;
+const Container = styled.div`
+  width: 27vw;
+  display: flex;
+  justify-content: center;
+`;
 const Classification: React.FC = () => {
-  return <div>옵션 선택</div>;
+  return (
+    <Container>
+      <Select>
+        <option value="일반고">일반고</option>
+        <option value="특목고">특목고</option>
+        <option value="자율고">자율고</option>
+        <option value="특성화고">특성화고</option>
+      </Select>
+    </Container>
+  );
 };
 
 export default Classification;

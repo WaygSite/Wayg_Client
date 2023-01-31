@@ -1,18 +1,17 @@
 import React from "react";
-import Classification from "../components/Classification";
 import Data from "../components/data";
-
 import Header from "../components/Header";
-import PageNation from "../components/PageNation";
+import styled from "styled-components";
 
+const Bg = styled.body`
+  background-color: #f4f4f4;
+`;
 const Main: React.FC = () => {
   return (
-    <>
+    <Bg>
       <Header />
-      <Classification />
       <Data />
-      <PageNation />
-    </>
+    </Bg>
   );
 };
 

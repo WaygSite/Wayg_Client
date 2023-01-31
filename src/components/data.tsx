@@ -3,6 +3,8 @@ import { Data } from "../interface/model";
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Classification from "./Classification";
+import PageNation from "./PageNation";
 interface Props {}
 
 const Api: React.FC<Props> = () => {
@@ -29,6 +31,7 @@ const Api: React.FC<Props> = () => {
   `;
   const GRID_ITEM = styled.div`
     border: 2px solid black;
+    background-color: white;
     border-radius: 50px;
     &:hover {
       transform: translateY(-5px);
@@ -80,25 +83,30 @@ const Api: React.FC<Props> = () => {
       {loading ? (
         <Loading>Loading...</Loading>
       ) : (
-        <GRID>
-          {state.map((e: any, index) => (
-            <GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
-              <LinkTag to={"/Detail"} state={{ value: e.학교 }}>
-                <SchoolImg>학교 사진</SchoolImg>
+        <>
+          <Classification />
+          <GRID>
+            {state.map((e: any, index) => (
+              <GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
+                <LinkTag to={"/Detail"} state={{ value: e.학교 }}>
+                  <SchoolImg>학교 사진</SchoolImg>
 
-                <Title>{e.학교}</Title>
-                {/* 나중에 바꿀거니까 경악하지마세요 */}
-                <Text>설립구분 : {e.설립구분}</Text>
-                <Text>고교유형 : {e.고교유형}</Text>
-                <Text>남녀공학 : {e.남녀공학구분}</Text>
-                <Text>학교주소 : {e.학교도로명주소}</Text>
-                <Text>학교번호 : {e.학교전화번호}</Text>
-                <Text>설립일자 : {e.설립일자}</Text>
-                <Text>우편번호 : {e.우편번호}</Text>
-              </LinkTag>
-            </GRID_ITEM>
-          ))}
-        </GRID>
+                  <Title>{e.학교}</Title>
+                  {/* 나중에 바꿀거니까 경악하지마세요 */}
+                  <Text>설립구분 : {e.설립구분}</Text>
+                  <Text>고교유형 : {e.고교유형}</Text>
+                  <Text>남녀공학 : {e.남녀공학구분}</Text>
+                  <Text>학교주소 : {e.학교도로명주소}</Text>
+                  <Text>학교번호 : {e.학교전화번호}</Text>
+                  <Text>설립일자 : {e.설립일자}</Text>
+                  <Text>우편번호 : {e.우편번호}</Text>
+                </LinkTag>
+              </GRID_ITEM>
+            ))}
+          </GRID>
+
+          <PageNation />
+        </>
       )}
     </div>
   );
