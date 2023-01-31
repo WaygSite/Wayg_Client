@@ -21,8 +21,8 @@ const Api: React.FC<Props> = () => {
   const GRID = styled.div`
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, 500px);
-    grid-template-rows: repeat(${state.length - 71}, 600px);
+    grid-template-columns: repeat(3, 500px);
+    grid-template-rows: repeat(${state.length - 95}, 600px);
     column-gap: 30px;
     row-gap: 30px;
     justify-content: center;
@@ -87,6 +87,7 @@ const Api: React.FC<Props> = () => {
                 <SchoolImg>학교 사진</SchoolImg>
 
                 <Title>{e.학교}</Title>
+                {/* 나중에 바꿀거니까 경악하지마세요 */}
                 <Text>설립구분 : {e.설립구분}</Text>
                 <Text>고교유형 : {e.고교유형}</Text>
                 <Text>남녀공학 : {e.남녀공학구분}</Text>
