@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import Modal from "./Modal";
 
 //styled
 const Container = styled.header<{ trueOrFalse: boolean }>`
@@ -82,10 +83,15 @@ const LinkTag = styled(Link)`
   text-decoration: none;
 `;
 
+interface ValueProps {
+  isOpenModal: boolean;
+}
 const Header: React.FC = () => {
   const [search, setSearch] = useState([]);
   const [scroll, setScroll] = useState(0);
   const [trueOrFalse, setTrueOrFalse] = useState(true);
+  const [isOpenModal, setIsOpenModal] =
+    useState<ValueProps["isOpenModal"]>(false);
   //trueOrFalse가 거짓이면 position이 fixed로 설정
   //먼저 헤더부분의 높이를 가져온 후 그 높이랑 스크롤 위치가 같을 때 trueOrFalse에 false값을 넣어주고 css에서 애니메이션을 적용해주면 됨
   //이제 실천으로 옮기면 되는데 헤더높이를 js에서 어떻게 가져오노;;
@@ -108,22 +114,29 @@ const Header: React.FC = () => {
   const SearchSchool = (e: any) => {
     setSearch(e.target.value);
   };
+  const Login = () => {
+    setIsOpenModal(!isOpenModal);
+  };
 
   return (
-    <Container trueOrFalse={trueOrFalse}>
-      <LinkTag to="/">
-        <Home>Wayg</Home>
-      </LinkTag>
-      <Input
-        placeholder="진학하고 싶은 학교를 입력해주세요"
-        onChange={SearchSchool}
-      ></Input>
+    <>
+      <Container trueOrFalse={trueOrFalse}>
+        <LinkTag to="/">
+          <Home>Wayg</Home>
+        </LinkTag>
+        <Input
+          placeholder="진학하고 싶은 학교를 입력해주세요"
+          onChange={SearchSchool}
+        ></Input>
 
-      <div>
-        <Button>로그인</Button>
-        <Button>회원가입</Button>
-      </div>
-    </Container>
+        <div>
+          <Button onClick={Login}>로그인</Button>
+          <Button>회원가입</Button>
+        </div>
+      </Container>
+      {isOpenModal ? null : <Modal {...isOpenModal}></Modal>}
+      {/* error 고치기 */}
+    </>
   );
 };
 
