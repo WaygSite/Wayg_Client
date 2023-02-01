@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 export const Select = styled.select`
   width: 200px;
   padding: 0.8em 0.5em;
@@ -13,7 +13,7 @@ export const Select = styled.select`
   margin-left: 10px;
 `;
 export const Container = styled.div`
-  width: 40vw;
+  width: 100%;
   display: flex;
   justify-content: center;
 `;

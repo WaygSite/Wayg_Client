@@ -29,12 +29,12 @@ export const SchoolImg = styled.div`
   display: flex;
   align-items: center;
   height: 30vh;
-  width: 495px;
+  width: 100%;
   border-radius: 50px;
   justify-content: center;
 `;
 export const Title = styled.div`
-  font-size: 20px;
+  font-size: 100%;
   margin-top: 10px;
   color: black;
   font-weight: bold;
@@ -48,4 +48,5 @@ export const Text = styled.div`
   color: black;
   display: flex;
   justify-content: center;
+  font-size: 90%;
 `;

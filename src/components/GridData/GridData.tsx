@@ -23,8 +23,8 @@ const Api: React.FC<Props> = () => {
   const GRID = styled.div`
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(3, 500px);
-    grid-template-rows: repeat(${state.length - 95}, 600px);
+    grid-template-columns: repeat(3, 25vw);
+    grid-template-rows: repeat(${state.length - 95}, 60vh);
     column-gap: 30px;
     row-gap: 30px;
     justify-content: center;
