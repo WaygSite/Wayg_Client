@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import Pagination from "react-js-pagination";
-import { useState } from "react";
 
-const PaginationBox = styled.div`
+export const PaginationBox = styled.div`
   margin-top: 20px;
   position: relative;
   bottom: 0;
@@ -55,25 +53,3 @@ const PaginationBox = styled.div`
     color: blue;
   }
 `;
-
-const PageNation: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-  console.log(currentPage);
-  return (
-    <PaginationBox>
-      <Pagination
-        activePage={currentPage}
-        itemsCountPerPage={5}
-        totalItemsCount={50}
-        pageRangeDisplayed={5}
-        onChange={handlePageChange}
-      ></Pagination>
-    </PaginationBox>
-  );
-};
-
-export default PageNation;

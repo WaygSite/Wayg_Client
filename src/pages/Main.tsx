@@ -1,6 +1,6 @@
 import React from "react";
-import Data from "../components/data";
-import Header from "../components/Header";
+import Data from "../components/GridData/GridData";
+import Header from "../components/Header/Header";
 import styled from "styled-components";
 
 const Bg = styled.body`

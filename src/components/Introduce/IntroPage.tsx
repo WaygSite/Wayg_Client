@@ -1,12 +1,6 @@
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import * as S from "./IntroPageStyle";
 
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 3rem;
-`;
 interface PropsType {
   value: string;
 }
@@ -18,7 +12,7 @@ const Introduce: React.FC = () => {
   console.log(state.value);
   return (
     <div>
-      <Title>{state.value}</Title>
+      <S.Title>{state.value}</S.Title>
     </div>
   );
 };
