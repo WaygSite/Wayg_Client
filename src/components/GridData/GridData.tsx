@@ -35,7 +35,7 @@ const Api: React.FC = () => {
   return (
     <div>
       {loading ? (
-        <S.Loading>Loading...</S.Loading>
+        <S.Loading>지금 서버 안 열려있으니까 담에 찾아오세요</S.Loading>
       ) : (
         <>
           <Classification onOptionChange={handleOptionChange} />

@@ -21,7 +21,7 @@ export const Loading = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10rem;
+  font-size: 100%;
   font-weight: bold;
   height: 80vh;
 `;
