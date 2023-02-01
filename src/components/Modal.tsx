@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ValueProps } from "./Header";
 const ModalContainer = styled.div`
   position: fixed;
   top: 12%;
@@ -28,11 +27,18 @@ const Backdrop = styled.div`
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.2);
 `;
-const Modal: React.FC<ValueProps> = () => {
+interface Props {
+  name: (open: boolean) => void;
+}
+
+const Modal: React.FC<Props> = ({ name }) => {
+  const Convert = () => {
+    name(true);
+  };
   return (
     <ModalContainer>
       <DialogBox>모달창입니다</DialogBox>
-      <Backdrop></Backdrop>
+      <Backdrop onClick={Convert}></Backdrop>
     </ModalContainer>
   );
 };

@@ -83,15 +83,10 @@ const LinkTag = styled(Link)`
   text-decoration: none;
 `;
 
-interface ValueProps {
-  isOpenModal: boolean;
-}
 const Header: React.FC = () => {
   const [search, setSearch] = useState([]);
-  const [scroll, setScroll] = useState(0);
   const [trueOrFalse, setTrueOrFalse] = useState(true);
-  const [isOpenModal, setIsOpenModal] =
-    useState<ValueProps["isOpenModal"]>(false);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
   //trueOrFalse가 거짓이면 position이 fixed로 설정
   //먼저 헤더부분의 높이를 가져온 후 그 높이랑 스크롤 위치가 같을 때 trueOrFalse에 false값을 넣어주고 css에서 애니메이션을 적용해주면 됨
   //이제 실천으로 옮기면 되는데 헤더높이를 js에서 어떻게 가져오노;;
@@ -115,7 +110,7 @@ const Header: React.FC = () => {
     setSearch(e.target.value);
   };
   const Login = () => {
-    setIsOpenModal(!isOpenModal);
+    setIsOpenModal(false);
   };
 
   return (
@@ -134,7 +129,7 @@ const Header: React.FC = () => {
           <Button>회원가입</Button>
         </div>
       </Container>
-      {isOpenModal ? null : <Modal {...isOpenModal}></Modal>}
+      {isOpenModal ? null : <Modal name={setIsOpenModal}></Modal>}
       {/* error 고치기 */}
     </>
   );
