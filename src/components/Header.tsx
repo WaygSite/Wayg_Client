@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import Modal from "./Modal";
+import Modal from "./LoginModal";
 
 //styled
 const Container = styled.header<{ trueOrFalse: boolean }>`
@@ -40,9 +40,13 @@ const Input = styled.input`
   border-radius: 10px;
   font-size: 15px;
   padding-left: 10px;
+  border: none;
   &::placeholder {
     font-size: 1rem;
     font-weight: bolder;
+  }
+  &:hover {
+    border: 1px solid black;
   }
   @media screen and (max-width: 1024px) {
   }
