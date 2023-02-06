@@ -46,8 +46,8 @@ const Api: React.FC = () => {
             */}
             {state.map(
               (e: any, number) =>
-                (selectedOption === "모든 남여구분 보기" && (
-                  <S.GRID_ITEM key={number} onClick={() => setValue(e)}>
+                (
+                  <S.GRID_ITEM key={number}>
                     <S.LinkTag
                       to={"/Detail"}
                       state={{ value: e.SchoolName, value2: e.SiteAddr }}
@@ -64,9 +64,9 @@ const Api: React.FC = () => {
                       <S.Text>우편번호 : {e.우편번호}</S.Text> */}
                     </S.LinkTag>
                   </S.GRID_ITEM>
-                )) ||
+                ) ||
                 (e.MaW === selectedOption && (
-                  <S.GRID_ITEM key={number} onClick={() => setValue(e)}>
+                  <S.GRID_ITEM key={number}>
                     <S.LinkTag
                       to={"/Detail"}
                       state={{ value: e.SchoolName, value2: e.SiteAddr }}
