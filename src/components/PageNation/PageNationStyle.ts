@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const PaginationBox = styled.div`
   margin-top: 20px;
-  position: relative;
-  bottom: 0;
   display: flex;
   width: 100%;
   justify-content: center;
+  position: static;
   background-color: white;
 
   height: 10vh;

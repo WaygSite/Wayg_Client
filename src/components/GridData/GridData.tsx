@@ -11,6 +11,7 @@ const Api: React.FC = () => {
   const [state, setState] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState({});
+  const [site, setSite] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   useEffect(() => {
     const fetch = async () => {
@@ -44,36 +45,42 @@ const Api: React.FC = () => {
                 그렇지 않고 자신이 선택한 고교유형과 현재 내가 가지고 있는 데이터에 있는 고교유형과 값이 같다면 그와 같은 grid만 랜더링을 해준다            
             */}
             {state.map(
-              (e: any, index) =>
-                (selectedOption === "모든유형의 학교보기" && (
-                  <S.GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
-                    <S.LinkTag to={"/Detail"} state={{ value: e.학교 }}>
+              (e: any, number) =>
+                (selectedOption === "모든 남여구분 보기" && (
+                  <S.GRID_ITEM key={number} onClick={() => setValue(e)}>
+                    <S.LinkTag
+                      to={"/Detail"}
+                      state={{ value: e.SchoolName, value2: e.SiteAddr }}
+                    >
                       <S.SchoolImg>학교 사진</S.SchoolImg>
-                      <S.Title>{e.학교}</S.Title>
-                      {/* 나중에 바꿀거니까 경악하지마세요 */}
-                      <S.Text>설립구분 : {e.설립구분}</S.Text>
-                      <S.Text>고교유형 : {e.고교유형}</S.Text>
-                      <S.Text>남녀공학 : {e.남녀공학구분}</S.Text>
-                      <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
+                      <S.Title>{e.SchoolName}</S.Title>
+                      <S.Text>설립구분 : {e.Institution}</S.Text>
+                      <S.Text>고교유형 : {e.Type}</S.Text>
+                      <S.Text>남녀공학 : {e.MaW}</S.Text>
+                      <S.Text>학교주소 : {e.SiteAddr}</S.Text>
+                      {/* <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
                       <S.Text>학교번호 : {e.학교전화번호}</S.Text>
                       <S.Text>설립일자 : {e.설립일자}</S.Text>
-                      <S.Text>우편번호 : {e.우편번호}</S.Text>
+                      <S.Text>우편번호 : {e.우편번호}</S.Text> */}
                     </S.LinkTag>
                   </S.GRID_ITEM>
                 )) ||
-                (e.고교유형 === selectedOption && (
-                  <S.GRID_ITEM key={index} onClick={() => setValue(e.학교)}>
-                    <S.LinkTag to={"/Detail"} state={{ value: e.학교 }}>
+                (e.MaW === selectedOption && (
+                  <S.GRID_ITEM key={number} onClick={() => setValue(e)}>
+                    <S.LinkTag
+                      to={"/Detail"}
+                      state={{ value: e.SchoolName, value2: e.SiteAddr }}
+                    >
                       <S.SchoolImg>학교 사진</S.SchoolImg>
-                      <S.Title>{e.학교}</S.Title>
-                      {/* 나중에 바꿀거니까 경악하지마세요 */}
-                      <S.Text>설립구분 : {e.설립구분}</S.Text>
-                      <S.Text>고교유형 : {e.고교유형}</S.Text>
-                      <S.Text>남녀공학 : {e.남녀공학구분}</S.Text>
-                      <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
+                      <S.Title>{e.SchoolName}</S.Title>
+                      <S.Text>설립구분 : {e.Institution}</S.Text>
+                      <S.Text>고교유형 : {e.Type}</S.Text>
+                      <S.Text>남녀공학 : {e.MaW}</S.Text>
+                      <S.Text>학교주소 : {e.SiteAddr}</S.Text>
+                      {/* <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
                       <S.Text>학교번호 : {e.학교전화번호}</S.Text>
                       <S.Text>설립일자 : {e.설립일자}</S.Text>
-                      <S.Text>우편번호 : {e.우편번호}</S.Text>
+                      <S.Text>우편번호 : {e.우편번호}</S.Text> */}
                     </S.LinkTag>
                   </S.GRID_ITEM>
                 ))
