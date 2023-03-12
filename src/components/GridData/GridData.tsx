@@ -41,12 +41,12 @@ const Api: React.FC = () => {
         <>
           <Classification onOptionChange={handleOptionChange} />
           <GRID>
-            {/* 해석 : 만약에 하위 컴포넌트의 value가 들어있는 selectedOption이 모든유형의 학교보기와 같다면 모든 grid를 띄워줄것이며,
-                그렇지 않고 자신이 선택한 고교유형과 현재 내가 가지고 있는 데이터에 있는 고교유형과 값이 같다면 그와 같은 grid만 랜더링을 해준다            
-            */}
-            {state.map(
-              (e: any, number) =>
-                (
+            {state.map((e: any, number) => {
+              if (
+                selectedOption === "모든 남여구분 보기" ||
+                e.MaW === selectedOption
+              ) {
+                return (
                   <S.GRID_ITEM key={number}>
                     <S.LinkTag
                       to={"/Detail"}
@@ -58,33 +58,11 @@ const Api: React.FC = () => {
                       <S.Text>고교유형 : {e.Type}</S.Text>
                       <S.Text>남녀공학 : {e.MaW}</S.Text>
                       <S.Text>학교주소 : {e.SiteAddr}</S.Text>
-                      {/* <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
-                      <S.Text>학교번호 : {e.학교전화번호}</S.Text>
-                      <S.Text>설립일자 : {e.설립일자}</S.Text>
-                      <S.Text>우편번호 : {e.우편번호}</S.Text> */}
                     </S.LinkTag>
                   </S.GRID_ITEM>
-                ) ||
-                (e.MaW === selectedOption && (
-                  <S.GRID_ITEM key={number}>
-                    <S.LinkTag
-                      to={"/Detail"}
-                      state={{ value: e.SchoolName, value2: e.SiteAddr }}
-                    >
-                      <S.SchoolImg>학교 사진</S.SchoolImg>
-                      <S.Title>{e.SchoolName}</S.Title>
-                      <S.Text>설립구분 : {e.Institution}</S.Text>
-                      <S.Text>고교유형 : {e.Type}</S.Text>
-                      <S.Text>남녀공학 : {e.MaW}</S.Text>
-                      <S.Text>학교주소 : {e.SiteAddr}</S.Text>
-                      {/* <S.Text>학교주소 : {e.학교도로명주소}</S.Text>
-                      <S.Text>학교번호 : {e.학교전화번호}</S.Text>
-                      <S.Text>설립일자 : {e.설립일자}</S.Text>
-                      <S.Text>우편번호 : {e.우편번호}</S.Text> */}
-                    </S.LinkTag>
-                  </S.GRID_ITEM>
-                ))
-            )}
+                );
+              }
+            })}
           </GRID>
 
           <PageNation />
